@@ -1,0 +1,4 @@
+Stage,Model,Accuracy,Precision,Recall,F1-Score
+Stage 1 - Message,TF-IDF + Logistic Regression,0.9825,0.9827,0.9825,0.9825
+Stage 2 - URL,XGBoost,0.9999,0.9999,0.9999,0.9999
+Stage 3 - HTML,Random Forest,0.9974,0.9974,0.9974,0.9974
