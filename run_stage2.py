@@ -20,10 +20,14 @@ METRIC_DIR = os.path.join(BASE, 'result', 'metrics')
 os.makedirs(FIG_DIR, exist_ok=True)
 os.makedirs(METRIC_DIR, exist_ok=True)
 
-# URL structural features — exclude string/text columns and HTML features
+# URL structural features — only features computable from URL string alone.
+# Excluded (4 features):
+#   URLSimilarityIndex  → data leakage: all legitimate URLs = 100.0 in PhiUSIIL
+#   CharContinuationRate → definition unclear, cannot reliably reproduce in extractor
+#   TLDLegitimateProb   → requires external TLD probability lookup table
+#   URLCharProb         → requires character frequency reference distribution
 URL_FEATURES = [
-    'URLLength', 'DomainLength', 'IsDomainIP', 'URLSimilarityIndex',
-    'CharContinuationRate', 'TLDLegitimateProb', 'URLCharProb', 'TLDLength',
+    'URLLength', 'DomainLength', 'IsDomainIP', 'TLDLength',
     'NoOfSubDomain', 'HasObfuscation', 'NoOfObfuscatedChar', 'ObfuscationRatio',
     'NoOfLettersInURL', 'LetterRatioInURL', 'NoOfDegitsInURL', 'DegitRatioInURL',
     'NoOfEqualsInURL', 'NoOfQMarkInURL', 'NoOfAmpersandInURL',

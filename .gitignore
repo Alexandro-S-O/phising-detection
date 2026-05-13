@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+
+notebook_text.txt
+*.html
+
+.claude/worktrees/
